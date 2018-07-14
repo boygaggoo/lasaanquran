@@ -1,0 +1,105 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:swipedeck="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context="com.ctandem.lasaanulquran.fragments.FlashCardFragment">
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/detail_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="8dp"
+        android:fontFamily="@font/jameel_noori"
+        android:gravity="center"
+        android:text="@string/select_answer"
+        swipedeck:layout_constraintEnd_toEndOf="parent"
+        swipedeck:layout_constraintStart_toStartOf="parent"
+        swipedeck:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/stats_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimary"
+        android:fontFamily="@font/jameel_noori"
+        android:text="@string/stats"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:padding="4dp"
+        swipedeck:layout_constraintBottom_toBottomOf="parent"
+        swipedeck:layout_constraintEnd_toEndOf="parent"
+        swipedeck:layout_constraintStart_toStartOf="parent"
+        swipedeck:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <com.daprlabs.aaron.swipedeck.layouts.SwipeFrameLayout
+        android:id="@+id/swipe_frame"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:visibility="visible"
+        swipedeck:layout_constraintBottom_toTopOf="@+id/right_btn"
+        swipedeck:layout_constraintEnd_toEndOf="parent"
+        swipedeck:layout_constraintStart_toStartOf="parent"
+        swipedeck:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <com.daprlabs.aaron.swipedeck.SwipeDeck
+            android:id="@+id/swipe_deck"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            swipedeck:card_spacing="10dp"
+            swipedeck:max_visible="2"
+            swipedeck:swipe_enabled="true">
+
+        </com.daprlabs.aaron.swipedeck.SwipeDeck>
+
+    </com.daprlabs.aaron.swipedeck.layouts.SwipeFrameLayout>
+
+    <Button
+        android:id="@+id/right_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/colorPrimary"
+        android:fontFamily="@font/jameel_noori"
+        android:text="@string/right"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        swipedeck:layout_constraintBottom_toBottomOf="parent"
+        swipedeck:layout_constraintEnd_toStartOf="@+id/guideline2" />
+
+    <Button
+        android:id="@+id/wrong_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/wrong"
+        android:fontFamily="@font/jameel_noori"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        swipedeck:layout_constraintStart_toStartOf="@+id/guideline2"
+        swipedeck:layout_constraintTop_toTopOf="@+id/right_btn" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        swipedeck:layout_constraintGuide_percent="0.5" />
+
+</android.support.constraint.ConstraintLayout>

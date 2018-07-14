@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">لسان القرآن</string>
+
+    <string name="Ok">ٹھیک ہے</string>
+    <string name="NO_INTERNET_CONNECTIVITY_HEAD">انٹرنیٹ نہیں</string>
+    <string name="NO_INTERNET_CONNECTIVITY">براہ کرم اپنا انٹرنیٹ کنکشن چیک کریں</string>
+
+    <string name="NetworkError">کوئی ڈیٹا نہیں ملا!</string>
+    <string name="ClientError">کلائنٹ سائڈ خرابی واقع ہوئی!</string>
+    <string name="ServerError">سرور کی خرابی واقع ہوئی!</string>
+    <string name="AuthFailureError">تصدیق ناکامی</string>
+    <string name="ParseError">خرابی ہے!</string>
+    <string name="TimeoutError">وقت کی خرابیوں کا سامنا!</string>
+
+    <string name="exitMessage">کیا آپ کو یقین ہے کہ آپ یہاں سے نکلنا چاہتے ہیں؟</string>
+
+    <string name="yes">جی ہاں</string>
+    <string name="no">نہیں</string>
+
+    <string name="right">درست</string>
+    <string name="wrong">غلط</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="filter_title_text">اپنا فلٹر منتخب کریں</string>
+    <string name="filter_cancel_text">منسوخ کریں</string>
+    <string name="filter_ok_text">ٹھیک ہے</string>
+    <string name="settings_about_us">ہمارے متعلق</string>
+    <string name="settings_terms_text">استعمال کی شرائط</string>
+    <string name="settings_privacy_policy">پرائیویسی پالیسی</string>
+    <string name="settings">ترتیبات</string>
+    <string name="bookmarks">بک مارک</string>
+    <string name="chapters">باب</string>
+    <string name="title">عنوان</string>
+    <string name="subject">موضوع</string>
+    <string name="words">حروف</string>
+    <string name="books">کتابیں</string>
+    <string name="notification">اطلاعات</string>
+    <string name="bismillah">بِسْمِ اللّٰهِ الرَّحْـمٰنِ الرَّحِیْـمِ</string>
+    <string name="share">بانٹیں</string>
+    <string name="question_answer">سوال و جواب</string>
+    <string name="word_mean">الفاظ کے معنی</string>
+    <!--<string name="word_mean">الفاظ معنی</string>-->
+    <string name="flash_card">فلیش کارڈ</string>
+    <string name="audio">آڈیو</string>
+    <string name="video">ویڈیو</string>
+    <string name="book_name">کتاب کا نام</string>
+    <string name="sent_info">معلومات بھیجیں</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="select_answer">صحیح جواب کا انتخاب کریں</string>
+    <string name="alphabets">الفاظ</string>
+    <string name="means">معنی</string>
+    <string name="home">گھر</string>
+    <string name="stats">غلط جوابات کا مطالعہ کریں</string>
+    <string name="wrong_answer">غلط جواب</string>
+    <string name="share_app">ایپ کا اشتراک کریں</string>
+    <string name="send_feedback">رائے بھیجیں</string>
+
+</resources>

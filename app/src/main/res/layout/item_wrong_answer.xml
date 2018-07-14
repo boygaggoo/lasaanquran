@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/heading_tv"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/jameel_noori"
+        android:textAppearance="@style/JameelNooriTextAppearance_Style"
+        android:padding="5dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:text="@string/chapters" />
+    <!--style="@style/heading_tv"-->
+
+    <TextView
+        android:id="@+id/detail_tv"
+        style="@style/detail_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/muhammadi_quranic"
+        android:textAppearance="@style/MuhammadQuraniTextAppearance_Style"
+        android:padding="5dp">
+
+    </TextView>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_motif" />
+
+</LinearLayout>
