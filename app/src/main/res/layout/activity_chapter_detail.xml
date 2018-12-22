@@ -6,7 +6,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ctandem.lasaanulquran.activities.ChapterDetailActivity">
+    tools:context="com.lisanulquranapp.activities.ChapterDetailActivity">
 
     <include layout="@layout/toolbar_layout" />
 

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1071000269821",
+    "firebase_url": "https://lissanquran.firebaseio.com",
+    "project_id": "lissanquran",
+    "storage_bucket": "lissanquran.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071000269821:android:df39025e31b4907a",
+        "android_client_info": {
+          "package_name": "com.lisanulquranapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1071000269821-1ig7h77prstd8fthoeh9ilih7f65vbh4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-CPeJYGcQl8jJOF3ONXJ3qGHEdCSEq-g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

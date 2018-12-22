@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ctandem.lasaanulquran.activities.ChaptersContentActivity">
+    tools:context="com.lisanulquranapp.activities.ChaptersContentActivity">
 
     <LinearLayout
         android:id="@+id/temp_ll"

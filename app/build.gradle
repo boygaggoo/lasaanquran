@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 26
@@ -53,6 +54,10 @@ dependencies {
     implementation 'com.daprlabs.aaron:swipedeck:2.0.6'
     implementation 'com.wajahatkarim3.EasyFlipView:EasyFlipView:2.0.5'
     implementation 'com.github.polok.flipview:library:1.0.1'
+
+    //firebase
+    implementation 'com.google.firebase:firebase-core:16.0.1'
+    implementation 'com.google.firebase:firebase-messaging:11.8.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
