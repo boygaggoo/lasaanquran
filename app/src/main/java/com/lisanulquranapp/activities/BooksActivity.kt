@@ -1,18 +1,30 @@
 package com.lisanulquranapp.activities
 
+import android.Manifest
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.GridLayoutManager
+import android.telephony.TelephonyManager
+import android.util.Log
 import android.view.View
+import com.google.firebase.iid.FirebaseInstanceId
 import com.lisanulquranapp.R
 import com.lisanulquranapp.adapters.BooksAdapter
 import com.lisanulquranapp.base.BaseActivity
 import com.lisanulquranapp.models.BooksModel
 import com.lisanulquranapp.models.ErrorModel
+import com.lisanulquranapp.permissions.PermissionUtility
+import com.lisanulquranapp.permissions.PermissionsConstants
+import com.lisanulquranapp.retrofit.CallingWebServices
+import com.lisanulquranapp.retrofit.ServiceResponse
 import com.lisanulquranapp.utils.StaticMethod
 import com.michael.easydialog.EasyDialog
 import kotlinx.android.synthetic.main.activity_books.*
@@ -21,14 +33,25 @@ import kotlinx.android.synthetic.main.filter_layout.view.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 
-class BooksActivity : BaseActivity() {
+class BooksActivity : ServiceResponse, BaseActivity() {
+    override fun onSuccess(`object`: Any?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onFail(`object`: Any?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onError(`object`: Any?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     lateinit var list: List<BooksModel>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setWindowDirection()
         setContentView(R.layout.activity_books)
-
+        get()
         list = ArrayList()
         initUI()
     }
@@ -177,6 +200,42 @@ class BooksActivity : BaseActivity() {
 
     override fun onBackPressed() {
         exitDialog()
+    }
+
+    private fun get() {
+        if (PermissionUtility.isPermissionGranted(Manifest.permission.READ_PHONE_STATE, this)) {
+
+            sendFirebaseToken()
+        } else {
+            PermissionUtility.askForStateReadPermission(this)
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (requestCode == PermissionsConstants.READ_PHONE_STATE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                sendFirebaseToken()
+            }
+        }
+    }
+
+
+    private fun sendFirebaseToken() {
+        val refreshedToken = FirebaseInstanceId.getInstance().token
+        val tel = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return
+        }
+        CallingWebServices.getInstance().sendFirebaseToken(tel.deviceId, refreshedToken, this);
     }
 
     private fun exitDialog() {

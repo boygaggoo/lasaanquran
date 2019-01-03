@@ -1,6 +1,7 @@
 package com.lisanulquranapp;
 
 import android.app.Application;
+import android.support.multidex.MultiDexApplication;
 import android.text.TextUtils;
 
 import com.android.volley.Request;
@@ -11,7 +12,8 @@ import com.android.volley.toolbox.Volley;
  * @author Nauman Ashraf.
  */
 
-public class AppController extends Application {
+public class AppController extends MultiDexApplication
+{
 
     public static final String TAG = AppController.class.getSimpleName();
     private RequestQueue mRequestQueue;
