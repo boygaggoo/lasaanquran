@@ -16,6 +16,7 @@ import com.lisanulquranapp.SplashActivity;
 import com.lisanulquranapp.utils.Constants;
 
 import java.util.Calendar;
+import java.util.Map;
 
 /**
  * Created by ZeeZee on 11/5/2017.
@@ -28,12 +29,11 @@ public class CustomFirebaseMessagingService extends FirebaseMessagingService
     public void onMessageReceived(RemoteMessage remoteMessage)
     {
         super.onMessageReceived(remoteMessage);
-        String completeMessage = remoteMessage.getData().get("message");
-        showNotification(completeMessage);
+        showNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
 
     }
     
-    private void showNotification(String message)
+    private void showNotification(String title, String message)
     {
         int notificationID = (int) (Calendar.getInstance().getTimeInMillis()/1000);
     
@@ -44,7 +44,7 @@ public class CustomFirebaseMessagingService extends FirebaseMessagingService
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setAutoCancel(true)
-                .setContentTitle(getResources().getString(R.string.app_name))
+                .setContentTitle(title)
                 .setContentText(message)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(message))
