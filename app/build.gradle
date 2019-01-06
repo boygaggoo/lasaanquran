@@ -57,8 +57,8 @@ dependencies {
     implementation 'com.github.polok.flipview:library:1.0.1'
 
     //firebase
-    implementation 'com.google.firebase:firebase-core:16.0.1'
-    implementation 'com.google.firebase:firebase-messaging:11.8.0'
+    implementation 'com.google.firebase:firebase-core:10.2.1'
+    implementation 'com.google.firebase:firebase-messaging:10.2.1'
 
     //Retrofit - library to parse JSON
     implementation 'com.squareup.retrofit2:retrofit:2.0.2'

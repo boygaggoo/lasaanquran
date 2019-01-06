@@ -11,6 +11,9 @@ import android.support.v4.app.NotificationCompat;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.lisanulquranapp.R;
+import com.lisanulquranapp.SplashActivity;
+import com.lisanulquranapp.utils.Constants;
 
 import java.util.Calendar;
 
@@ -26,13 +29,13 @@ public class CustomFirebaseMessagingService extends FirebaseMessagingService
     {
         super.onMessageReceived(remoteMessage);
         String completeMessage = remoteMessage.getData().get("message");
-        showNotification(completeMessage.split(":")[1], completeMessage.split(":")[0]);
+        showNotification(completeMessage);
 
     }
     
-    private void showNotification(String title, String message)
+    private void showNotification(String message)
     {
-        /*int notificationID = (int) (Calendar.getInstance().getTimeInMillis()/1000);
+        int notificationID = (int) (Calendar.getInstance().getTimeInMillis()/1000);
     
         Intent i = new Intent(this, SplashActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -41,7 +44,7 @@ public class CustomFirebaseMessagingService extends FirebaseMessagingService
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setAutoCancel(true)
-                .setContentTitle(title)
+                .setContentTitle(getResources().getString(R.string.app_name))
                 .setContentText(message)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(message))
@@ -53,7 +56,7 @@ public class CustomFirebaseMessagingService extends FirebaseMessagingService
     
         NotificationCompat.Builder summeryBuilder = new NotificationCompat.Builder(this);
         summeryBuilder.setAutoCancel(true)
-                .setContentTitle(title)
+                .setContentTitle(getResources().getString(R.string.app_name))
                 .setContentText(message)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(message))
@@ -68,11 +71,11 @@ public class CustomFirebaseMessagingService extends FirebaseMessagingService
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
         {
             int importance = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel channel = new NotificationChannel(Constants.CHANNEL_ID, "fast-bbq-waiter", importance);
-            channel.setDescription("fast-bbq-waiter-app");
+            NotificationChannel channel = new NotificationChannel(Constants.CHANNEL_ID, "lissan-ul-quran", importance);
+            channel.setDescription("lissan-ul-quran-app");
             notificationManager.createNotificationChannel(channel);
         }
         notificationManager.notify(notificationID, builder.build());
-        notificationManager.notify(Constants.NOTIFICATION_ID, summeryBuilder.build());*/
+        notificationManager.notify(Constants.NOTIFICATION_ID, summeryBuilder.build());
     }
 }

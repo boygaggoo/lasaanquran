@@ -1,7 +1,6 @@
 package com.lisanulquranapp.activities
 
 import android.Manifest
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -24,6 +23,7 @@ import com.lisanulquranapp.models.ErrorModel
 import com.lisanulquranapp.permissions.PermissionUtility
 import com.lisanulquranapp.permissions.PermissionsConstants
 import com.lisanulquranapp.retrofit.CallingWebServices
+import com.lisanulquranapp.retrofit.ResponseModel
 import com.lisanulquranapp.retrofit.ServiceResponse
 import com.lisanulquranapp.utils.StaticMethod
 import com.michael.easydialog.EasyDialog
@@ -35,15 +35,18 @@ import org.greenrobot.eventbus.Subscribe
 
 class BooksActivity : ServiceResponse, BaseActivity() {
     override fun onSuccess(`object`: Any?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val responseModel = `object` as ResponseModel
+        Log.d("success", responseModel.message)
     }
 
     override fun onFail(`object`: Any?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val stringOnFail = `object` as String
+        Log.d("success", stringOnFail)
     }
 
     override fun onError(`object`: Any?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val stringOnError = `object` as String
+        Log.d("success", stringOnError)
     }
 
     lateinit var list: List<BooksModel>

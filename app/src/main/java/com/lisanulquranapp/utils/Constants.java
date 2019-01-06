@@ -9,4 +9,8 @@ public class Constants {
             "com.ctandem.uber3";
 
     public static final String RECEIVER = PACKAGE_NAME + ".RECEIVER";
+    
+    public static final String CHANNEL_ID = "CHANNEL_ID_FAST_WAITER";
+    public static final int NOTIFICATION_ID = 787;
+    public static final String NOTOFICATION_GROUP = "NOTOFICATION_GROUP_WAITER";
 }
