@@ -13,6 +13,8 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.lisanulquranapp.R;
 import com.lisanulquranapp.SplashActivity;
+import com.lisanulquranapp.preferences.Preference;
+import com.lisanulquranapp.preferences.PreferenceHandler;
 import com.lisanulquranapp.utils.Constants;
 
 import java.util.Calendar;
@@ -30,6 +32,8 @@ public class CustomFirebaseMessagingService extends FirebaseMessagingService
     {
         super.onMessageReceived(remoteMessage);
 //        Map<String, String> maps = remoteMessage.getData();
+        PreferenceHandler.getInstance(getApplicationContext()).setString("title", remoteMessage.getNotification().getTitle());
+        PreferenceHandler.getInstance(getApplicationContext()).setString("message", remoteMessage.getNotification().getBody());
         showNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
 
     }

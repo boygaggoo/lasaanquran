@@ -2,6 +2,7 @@ package com.lisanulquranapp.activities
 
 import android.Manifest
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -12,8 +13,11 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.GridLayoutManager
 import android.telephony.TelephonyManager
+import android.text.TextUtils
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import com.google.firebase.iid.FirebaseInstanceId
 import com.lisanulquranapp.R
 import com.lisanulquranapp.adapters.BooksAdapter
@@ -22,6 +26,7 @@ import com.lisanulquranapp.models.BooksModel
 import com.lisanulquranapp.models.ErrorModel
 import com.lisanulquranapp.permissions.PermissionUtility
 import com.lisanulquranapp.permissions.PermissionsConstants
+import com.lisanulquranapp.preferences.PreferenceHandler
 import com.lisanulquranapp.retrofit.CallingWebServices
 import com.lisanulquranapp.retrofit.ResponseModel
 import com.lisanulquranapp.retrofit.ServiceResponse
@@ -30,6 +35,7 @@ import com.michael.easydialog.EasyDialog
 import kotlinx.android.synthetic.main.activity_books.*
 import kotlinx.android.synthetic.main.exit_dialog_layout.view.*
 import kotlinx.android.synthetic.main.filter_layout.view.*
+import kotlinx.android.synthetic.main.layout_notification_dialog.view.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 
@@ -76,10 +82,32 @@ class BooksActivity : ServiceResponse, BaseActivity() {
             sendFeedback()
         }
 
+        notification_toolbar_iv.setOnClickListener {
+            if (TextUtils.isEmpty(PreferenceHandler.getInstance(this).getString("title", "no title")) || TextUtils.equals(PreferenceHandler.getInstance(this).getString("title", "no title"), "no title")) {
+                Toast.makeText(this, "No notification to show", Toast.LENGTH_SHORT).show()
+            } else {
+                showNotificationDialog()
+            }
+        }
+
         swipe_refresh.setOnRefreshListener {
             setUpAdapter()
         }
         setUpAdapter()
+    }
+
+    private fun showNotificationDialog() {
+        val dialogView = LayoutInflater.from(this@BooksActivity).inflate(R.layout.layout_notification_dialog, null)
+        val tvTitle = dialogView.tvTitle
+        val tvMessage = dialogView.tvMessage
+        tvTitle.setText(PreferenceHandler.getInstance(this).getString("title", "no title"))
+        tvMessage.setText(PreferenceHandler.getInstance(this).getString("message", "no message"))
+        val builder = AlertDialog.Builder(this@BooksActivity)
+        builder.setView(dialogView)
+        builder.setPositiveButton("OK") { dialogInterface, i ->
+            dialogInterface.dismiss()
+        }
+        builder.create().show()
     }
 
     private fun shareApp() {
