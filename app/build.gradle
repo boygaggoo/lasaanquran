@@ -58,7 +58,7 @@ dependencies {
 
     //firebase
     implementation 'com.google.firebase:firebase-core:10.2.1'
-    implementation 'com.google.firebase:firebase-messaging:10.2.1'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
 
     //Retrofit - library to parse JSON
     implementation 'com.squareup.retrofit2:retrofit:2.0.2'

@@ -29,9 +29,16 @@ public class CustomFirebaseMessagingService extends FirebaseMessagingService
     public void onMessageReceived(RemoteMessage remoteMessage)
     {
         super.onMessageReceived(remoteMessage);
+//        Map<String, String> maps = remoteMessage.getData();
         showNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
 
     }
+    
+  /*  @Override
+    public void handleIntent(Intent intent)
+    {
+        super.handleIntent(intent);
+    }*/
     
     private void showNotification(String title, String message)
     {
@@ -61,7 +68,7 @@ public class CustomFirebaseMessagingService extends FirebaseMessagingService
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(message))
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setSound(soundUri)
+//                .setSound(soundUri)
                 .setChannelId(Constants.CHANNEL_ID)
                 .setContentIntent(pendingIntent)
                 .setGroup(Constants.NOTOFICATION_GROUP)
