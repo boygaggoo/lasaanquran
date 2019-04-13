@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lasaanquran-lasaanquran-69a5fd4bbf4a.iml" filepath="$PROJECT_DIR$/lasaanquran-lasaanquran-69a5fd4bbf4a.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lasaanquran.iml" filepath="$PROJECT_DIR$/lasaanquran.iml" />
     </modules>
   </component>
 </project>
